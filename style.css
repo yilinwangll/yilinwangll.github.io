@@ -165,19 +165,24 @@ h3 { font-size: 1rem; }
 .history-list li + li { margin-top: 0.65rem; }
 .history-list p { margin: 0.1rem 0 0; }
 
-.company-entry {
+.organization-entry {
   display: grid;
   grid-template-columns: 1.75rem minmax(0, 1fr);
   align-items: start;
   gap: 0.65rem;
 }
 
-.company-logo {
+.organization-logo {
   display: block;
   width: 1.75rem;
   height: 1.75rem;
   margin-top: 0.1rem;
   object-fit: contain;
+}
+
+.padded-seal {
+  object-fit: cover;
+  transform: scale(1.16);
 }
 
 .history-heading {
