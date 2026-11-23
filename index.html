@@ -18,7 +18,7 @@
     <div class="header-inner">
       <a class="wordmark" href="#top">Yilin Wang</a>
       <nav aria-label="Main">
-        <a href="#top" aria-current="page">Home</a>
+        <a href="#top">Home</a>
         <a href="#news">News</a>
         <a href="#research">Publications</a>
         <a href="#experience">Experience</a>
@@ -99,7 +99,7 @@
           <div class="paper-content">
             <h3 id="frame-selection-title">Efficient Frame Selection for Long Videos at Test Time with Attention-Based MLLM Selectors</h3>
             <p class="authors"><strong>Yilin Wang</strong><sup>*</sup>, Xiangxi Zheng<sup>*</sup>, Dongxing Mao, Linjie Li, Zhengyuan Yang, Ping Yu, Rui Yan, Yuan Yao, Alex Jinpeng Wang</p>
-            <p class="paper-meta">Findings of EMNLP 2026</p>
+            <p class="paper-meta published">Findings of EMNLP 2026</p>
             <div class="paper-links">
               <a href="https://arxiv.org/abs/2607.15689">arXiv</a>
               <a href="https://aclanthology.org/2026.findings-emnlp.1893/">ACL Anthology</a>
@@ -115,7 +115,7 @@
           <div class="paper-content">
             <h3 id="or-prm-title">OR-PRM: A Process Reward Model for Algorithmic Problem in Operations Research</h3>
             <p class="authors"><strong>Yilin Wang</strong><sup>*</sup>, Heng Zhou<sup>*</sup>, Dongxing Mao, Linjie Li, Jingru Tan, Haochen Han, Zhengyuan Yang, Alex Jinpeng Wang, Min Li</p>
-            <p class="paper-meta">ICLR 2026</p>
+            <p class="paper-meta published">ICLR 2026</p>
             <div class="paper-links">
               <a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/4624803ce92f6c44d8cabe085d8d9d96-Abstract-Conference.html">ICLR</a>
               <a href="https://proceedings.iclr.cc/paper_files/paper/2026/file/4624803ce92f6c44d8cabe085d8d9d96-Paper-Conference.pdf" aria-label="PDF for OR-PRM">PDF</a>
@@ -130,7 +130,7 @@
           <div class="paper-content">
             <h3 id="eventrag-title">EventRAG: Enhancing LLM Generation with Event Knowledge Graphs</h3>
             <p class="authors">Zairun Yang, <strong>Yilin Wang</strong>, Zhengyan Shi, Yuan Yao, Lei Liang, Keyan Ding, Emine Yilmaz, Huajun Chen, Qiang Zhang</p>
-            <p class="paper-meta">ACL 2025</p>
+            <p class="paper-meta published">ACL 2025</p>
             <div class="paper-links">
               <a href="https://aclanthology.org/2025.acl-long.830/">ACL Anthology</a>
               <a href="https://aclanthology.org/2025.acl-long.830.pdf" aria-label="PDF for EventRAG">PDF</a>
@@ -218,5 +218,19 @@
     <span>Yilin Wang</span>
     <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
   </footer>
+  <script>
+    (() => {
+      const links = [...document.querySelectorAll('nav a[href^="#"]')];
+      const targets = links.map(a => document.querySelector(a.getAttribute('href') === '#top' ? '#about' : a.getAttribute('href')));
+      const update = () => {
+        let i = 0;
+        if (window.scrollY > 40) targets.forEach((t, k) => { if (t && t.getBoundingClientRect().top < 120) i = k; });
+        if (window.scrollY > 40 && window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) i = links.length - 1;
+        links.forEach((a, k) => k === i ? a.setAttribute('aria-current', 'location') : a.removeAttribute('aria-current'));
+      };
+      addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+  </script>
 </body>
 </html>
