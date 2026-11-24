@@ -51,7 +51,16 @@ a:hover {
 
 .skip-link:focus { transform: translateY(0); }
 
-.site-header { border-bottom: 1px solid var(--line); }
+.site-header {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  border-bottom: 1px solid var(--line);
+  background: rgb(255 255 255 / 0.92);
+  backdrop-filter: saturate(1.4) blur(8px);
+}
+
+html { scroll-padding-top: 4.25rem; }
 
 .header-inner, .shell {
   width: min(100% - 3rem, var(--page-width));
@@ -92,7 +101,7 @@ nav a[aria-current] { font-weight: 700; }
 
 .intro {
   position: sticky;
-  top: 1.75rem;
+  top: 5.1rem;
 }
 
 .portrait {
@@ -162,10 +171,7 @@ h3 { font-size: 1rem; }
 
 .about p + p { margin-top: 0.55rem; }
 
-.profile-section {
-  margin-top: 2.25rem;
-  scroll-margin-top: 1rem;
-}
+.profile-section { margin-top: 2.25rem; }
 
 .news-list {
   margin: 0;
@@ -330,6 +336,8 @@ h3 { font-size: 1rem; }
 
 @media (max-width: 42rem) {
   .header-inner, .shell { width: calc(100% - 2rem); }
+  .site-header { position: static; }
+  html { scroll-padding-top: 0.75rem; }
   .header-inner { flex-wrap: wrap; gap: 0.25rem 1rem; padding-block: 0.65rem; }
   .page-layout { grid-template-columns: minmax(0, 1fr); padding-top: 1.15rem; }
 
