@@ -340,6 +340,58 @@ h3 { font-size: 1rem; }
   font-size: 0.85rem;
 }
 
+.photo-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.photo {
+  flex: var(--ratio) 1 0;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--figure-bg);
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.4s ease;
+}
+
+.photo:hover img { transform: scale(1.03); }
+
+.lightbox {
+  max-width: 94vw;
+  max-height: 94vh;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.lightbox::backdrop { background: rgb(10 12 16 / 0.88); }
+
+.lightbox img {
+  display: block;
+  max-width: 94vw;
+  max-height: 90vh;
+  border-radius: 4px;
+  cursor: zoom-out;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -2.4rem;
+  right: 0;
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -360,6 +412,7 @@ h3 { font-size: 1rem; }
   html { scroll-padding-top: 0.75rem; }
   .header-inner { flex-wrap: wrap; gap: 0.25rem 1rem; padding-block: 0.65rem; }
   nav { gap: 0.2rem 0.85rem; font-size: 0.94rem; }
+  .nav-home { display: none; }
   .page-layout { grid-template-columns: minmax(0, 1fr); padding-top: 1.15rem; }
 
   .intro {
@@ -375,6 +428,7 @@ h3 { font-size: 1rem; }
 }
 
 @media (max-width: 27rem) {
+  .photo-row { flex-direction: column; }
   .paper { grid-template-columns: minmax(0, 1fr); gap: 0.65rem; }
   .paper-figure { width: 100%; }
 }
